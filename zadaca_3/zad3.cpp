@@ -3,8 +3,8 @@
 #include <algorithm>
 #include <vector>
 #include "tgaimage.h"
-using namespace std;
 
+using namespace std;
 
 // dimenzije slike
 const int width  = 512;
@@ -24,12 +24,11 @@ float fja(const Vec3 &a, const Vec3 &b, const Vec3 &c)
     return (c[0] - a[0]) * (b[1] - a[1]) - (c[1] - a[1]) * (b[0] - a[0]); 
 } 
 
-
 void draw_triangle(float x0, float y0,float z0, float x1, float y1,float z1, float x2, float y2,float z2 ,TGAImage &image,TGAColor color)
 {   
-    Vec3 a1 = {x0,y0,z0};
-    Vec3 a2 = {x1,y1,z1};
-    Vec3 a3 = {x2, y2,z2};
+    Vec3 a1 = {x0, y0, z0};
+    Vec3 a2 = {x1, y1, z1};
+    Vec3 a3 = {x2, y2, z2};
 
     a1[0] /= a1[2]; 
     a1[1] /= a1[2];
@@ -73,7 +72,6 @@ void draw_triangle(float x0, float y0,float z0, float x1, float y1,float z1, flo
         }
     }
 }
-
 
 int main()
 {
