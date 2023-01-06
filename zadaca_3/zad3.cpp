@@ -19,7 +19,8 @@ typedef float Vec3[3];
 typedef float Vec2[2];
 
 //pomocna funkcija za racunanje
-float fja(const Vec3 &a, const Vec3 &b, const Vec3 &c) { 
+float fja(const Vec3 &a, const Vec3 &b, const Vec3 &c) 
+{ 
     return (c[0] - a[0]) * (b[1] - a[1]) - (c[1] - a[1]) * (b[0] - a[0]); 
 } 
 
@@ -52,18 +53,20 @@ void draw_triangle(float x0, float y0,float z0, float x1, float y1,float z1, flo
     a2[2]= 1 / a2[2]; 
     a3[2] = 1 / a3[2];
 
-    for (int j =0; j<height ; j++)
+    for (int j=0; j<height; ++j)
     {
-        for (int i= 0;i<width;i++)
+        for (int i=0; i<width; ++i)
         {
             float p1 = (float)i+0.5f;
             float p2 =  height-(float)j+0.5f;
+          
             Vec3 p = {p1, p2, 0};
+          
             float alpha = fja(a3,a2,p); 
             float beta = fja(a1,a3,p);
             float gama = fja(a2,a1,p); 
 
-            if((alpha >= 0 && beta >= 0 && gama >= 0) ) 
+            if(alpha >= 0 && beta >= 0 && gama >= 0)
             { 
                 image.set(j,i,color);
             }
