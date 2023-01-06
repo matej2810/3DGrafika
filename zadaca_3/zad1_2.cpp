@@ -16,8 +16,8 @@ const TGAColor blue  = TGAColor(0, 0, 255, 1);
                
 
 //pomocna funkcija za racunanje
-float fja(float xa,float ya,float xc,float yc,float x,float y) {
-
+float fja(float xa,float ya,float xc,float yc,float x,float y) 
+{
     return ((ya-yc)*x+(xc-xa)*y+xa*yc-xc*ya);
 }
 
@@ -38,13 +38,12 @@ void draw_triangle_2d(float x0, float y0, float x1, float y1, float x2, float y2
             alpha = fja(x1,y1,x2,y2,i,j)/fja(x1,y1,x2,y2,x0,y0); 
             beta= fja(x2,y2,x0,y0,i,j)/fja(x2,y2,x0,y0,x1,y1);  
             gama= fja(x0,y0,x1,y1,i,j)/fja(x0,y0,x1,y1,x2,y2);  
-               
-            
+             
             if (alpha >= 0 && alpha <= 1 && beta >= 0 && beta <= 1 && gama >= 0 && gama <= 1) 
             { 
-                if(( alpha > 0 ||((fja(x1,y1,x2,y2,x0,y0))*(fja(x1,y1,x2,y2,-1,-1))) >=0)
-                 &&( beta > 0 || ((fja(x2,y2,x0,y0,x1,y1))*(fja(x2,y2,x0,y0,-1,-1))) >=0)
-                 &&( gama > 0 || (fja(x0,y0,x1,y1,x2,y2))*(fja(x0,y0,x1,y1,-1,-1))) >=0)
+                if (( alpha > 0 ||((fja(x1,y1,x2,y2,x0,y0))*(fja(x1,y1,x2,y2,-1,-1))) >= 0)
+                 &&( beta > 0 || ((fja(x2,y2,x0,y0,x1,y1))*(fja(x2,y2,x0,y0,-1,-1))) >= 0)
+                 &&( gama > 0 || (fja(x0,y0,x1,y1,x2,y2))*(fja(x0,y0,x1,y1,-1,-1))) >= 0)
                  {
                         image.set(j, i, color);
                 }  
@@ -52,8 +51,6 @@ void draw_triangle_2d(float x0, float y0, float x1, float y1, float x2, float y2
         }
     } 
 }
-
-
 
 void draw_triangle_2d_gouraurd (float x0, float y0, float x1, float y1, float x2, float y2 ,TGAImage &image,TGAColor c0,TGAColor c1,TGAColor c2){
     
@@ -76,8 +73,7 @@ void draw_triangle_2d_gouraurd (float x0, float y0, float x1, float y1, float x2
             alpha= fja(x1,y1,x2,y2,i,j)/f1; 
             beta= fja(x2,y2,x0,y0,i,j)/f2;  
             gama= fja(x0,y0,x1,y1,i,j)/f3;  
-               
-            
+              
             if (alpha >= 0 && alpha <= 1 && beta >= 0 && beta <= 1 && gama >= 0 && gama <= 1)
             {              
                 if ((alpha>0 ||(f1 * (fja(x1,y1,x2,y2,-1,-1))) >=0)
